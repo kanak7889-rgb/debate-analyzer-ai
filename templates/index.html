@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debate Analyzer AI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <h1>🧠 Debate Analyzer AI</h1>
+    <p style="color:#94a3b8;">Analyze debates using AI-powered insights</p>
+
+    <!-- Input Form -->
+    <form method="POST">
+        <textarea name="debate" placeholder="Enter debate text...">{{ text }}</textarea>
+        <br>
+        <button type="submit">Analyze</button>
+        <button type="button" onclick="document.querySelector('textarea').value=''">
+        Clear
+        </button>
+    </form>
+
+    <!-- ✅ Show Results ONLY if available -->
+    {% if result %}
+
+    <div class="results">
+
+        <!-- 🏆 Winner -->
+        <div class="card winner">
+            <h2>🏆 Winner</h2>
+            <p>{{ result.winner }}</p>
+        </div>
+
+        <!-- 📊 Sentiment -->
+        <div class="card">
+            <h2>📊 Sentiment</h2>
+            {% for k, v in result.sentiment.items() %}
+                <p><b>{{ k }}</b>: {{ v }}</p>
+            {% endfor %}
+        </div>
+
+        <!-- ⚖️ Argument Strength -->
+        <div class="card">
+            <h2>⚖️ Argument Strength</h2>
+            {% for k, v in result.strength.items() %}
+                <p><b>{{ k }}</b>: {{ v }}</p>
+            {% endfor %}
+        </div>
+
+        <!-- 🔑 Keywords -->
+        <div class="card">
+            <h2>🔑 Keywords</h2>
+            {% for w, s in result.keywords %}
+                <span class="tag">{{ w }}</span>
+            {% endfor %}
+        </div>
+
+        <!-- 🧩 Topics -->
+        <div class="card">
+            <h2>🧩 Topics</h2>
+            {% for t in result.topics %}
+                <span class="tag">{{ t }}</span>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>

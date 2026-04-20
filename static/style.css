@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    color: white;
+}
+
+.container {
+    width: 85%;
+    margin: auto;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 20px;
+    font-size: 2.5rem;
+    color: #38bdf8;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 15px;
+    border-radius: 12px;
+    border: none;
+    margin-top: 20px;
+    font-size: 16px;
+    outline: none;
+}
+
+button {
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: linear-gradient(90deg, #38bdf8, #22c55e);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.results {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.08);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.winner {
+    grid-column: span 2;
+    background: linear-gradient(90deg, #22c55e, #4ade80);
+    color: black;
+    font-size: 20px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 5px;
+    border-radius: 20px;
+    background: #38bdf8;
+    color: black;
+    font-size: 14px;
+}
